@@ -1,0 +1,85 @@
+﻿<view class="container">
+  <scroll-view
+    class="chat-container"
+    scroll-y
+    scroll-top="{{scrollTop}}"
+    scroll-into-view="{{scrollIntoView}}"
+    scroll-with-animation="true"
+    bindscrolltoupper="onScrollToUpper"
+    bindscrolltolower="onScrollToLower"
+    bindscroll="onScroll"
+    upper-threshold="50"
+    lower-threshold="50"
+    enhanced
+    show-scrollbar="false"
+    enable-back-to-top="true"
+    refresher-enabled="{{enableRefresher}}"
+    refresher-triggered="{{refresherTriggered}}"
+    bindrefresherrefresh="onRefresherRefresh"
+  >
+    <view class="welcome-message">
+      <view class="avatar-bot">🤖</view>
+      <view class="message-bubble bot">
+        <text>你好！我是你的学生信息助手。请问我可以帮你查询什么？</text>
+      </view>
+    </view>
+
+    <view
+      wx:for="{{messages}}"
+      wx:key="id"
+      id="msg-{{item.id}}"
+      class="message-item {{item.type === 'user' ? 'user' : 'bot'}}"
+    >
+      <view class="avatar">{{item.type === 'user' ? '👤' : '🤖'}}</view>
+      <view class="bubble-wrap">
+        <view
+          class="message-bubble {{item.type === 'user' ? 'user' : 'bot'}}"
+          bindlongpress="onLongPressMessage"
+          data-id="{{item.id}}"
+          data-content="{{item.content}}"
+        >
+          <text>{{item.content}}</text>
+        </view>
+        <view class="message-time">
+          <text>{{item.time}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{loading}}" class="loading">
+      <view class="loading-dots">
+        <view class="dot"></view>
+        <view class="dot"></view>
+        <view class="dot"></view>
+      </view>
+      <text>正在思考...</text>
+    </view>
+
+    <view id="bottom-anchor" style="height: 1rpx;"></view>
+  </scroll-view>
+
+  <view class="scroll-controls {{showScrollControls ? 'show' : ''}}">
+    <view class="scroll-btn" bindtap="scrollToTop" wx:if="{{showScrollToTop}}">
+      <text class="scroll-icon">↑</text>
+    </view>
+    <view class="scroll-btn" bindtap="scrollToBottom" wx:if="{{showScrollToBottom}}">
+      <text class="scroll-icon">↓</text>
+    </view>
+  </view>
+
+  <view class="input-area">
+    <input
+      class="input"
+      placeholder="请输入你的问题..."
+      value="{{inputValue}}"
+      bindinput="onInput"
+      bindconfirm="onSend"
+      hold-keyboard="{{true}}"
+      adjust-position="{{true}}"
+      cursor-spacing="20"
+    />
+    <view class="send-btn" bindtap="onSend">
+      <text class="send-icon">➤</text>
+    </view>
+  </view>
+</view>
