@@ -1,0 +1,40 @@
+<view class="container">
+  <view class="logo-area">
+    <view class="logo">📚</view>
+    <text class="title">学生信息助手</text>
+    <text class="subtitle">登录后查询您的学习数据</text>
+  </view>
+
+  <view class="form-area">
+    <view class="input-item">
+      <text class="label">学号</text>
+      <input 
+        class="input" 
+        placeholder="请输入学号" 
+        value="{{username}}"
+        bindinput="onUsernameInput"
+      />
+    </view>
+
+    <view class="input-item">
+      <text class="label">密码</text>
+      <input 
+        class="input" 
+        placeholder="请输入密码" 
+        value="{{password}}"
+        password
+        bindinput="onPasswordInput"
+      />
+    </view>
+
+    <button class="login-btn" bindtap="onLogin" loading="{{loading}}">
+      {{loading ? '登录中...' : '登录'}}
+    </button>
+
+    <text class="hint">登录后将自动获取您的学习数据</text>
+  </view>
+
+  <view class="footer">
+    <text class="footer-text">已保存的学生：{{savedStudents.join('、') || '暂无'}}</text>
+  </view>
+</view>

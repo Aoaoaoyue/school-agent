@@ -1,0 +1,44 @@
+<!--index.wxml-->
+ <view class="container">
+   <view class="banner">
+     <view class="banner-content">
+       <text class="banner-title">校园信息智能查询智能体</text>
+       <text class="banner-subtitle">让校园信息查询更简单</text>
+       <view class="banner-btn" bindtap="{{userInfo ? 'goToChat' : 'goToLogin'}}">
+         <text>{{userInfo ? '开始对话' : '立即体验'}}</text>
+       </view>
+     </view>
+   </view>
+ 
+   <view class="feature-grid">
+     <view class="feature-card" bindtap="goToChat">
+       <view class="feature-icon">💬</view>
+       <text class="feature-title">智能问答</text>
+       <text class="feature-desc">自然语言查询课程、成绩、考试信息</text>
+     </view>
+     <view class="feature-card" bindtap="goToNotice">
+       <view class="feature-icon">📢</view>
+       <text class="feature-title">校园通知</text>
+       <text class="feature-desc">浏览校园各类通知公告</text>
+     </view>
+     <view class="feature-card" bindtap="goToNavigation">
+       <view class="feature-icon">🗺️</view>
+       <text class="feature-title">校园导航</text>
+       <text class="feature-desc">查找教学楼、食堂、图书馆等地点</text>
+     </view>
+     <view class="feature-card" bindtap="goToLibrary">
+       <view class="feature-icon">📚</view>
+       <text class="feature-title">图书馆</text>
+       <text class="feature-desc">图书检索、借阅查询、热门图书</text>
+     </view>
+   </view>
+ 
+   <view class="footer-info">
+     <text class="footer-text">成都信息工程大学 · 校园信息智能查询智能体</text>
+     <view class="footer-links">
+       <text class="link" bindtap="goToProfile">个人中心</text>
+       <text class="link-sep">|</text>
+       <text class="link" bindtap="goToLogin">切换账号</text>
+     </view>
+   </view>
+ </view>

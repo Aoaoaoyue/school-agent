@@ -1,0 +1,147 @@
+.campus-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 120rpx;
+  box-sizing: border-box;
+}
+
+.tab-bar {
+  display: flex;
+  background: #fff;
+  border-bottom: 1rpx solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #1677ff;
+  font-weight: 600;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 60%;
+  height: 4rpx;
+  background: #1677ff;
+  border-radius: 2rpx;
+}
+
+.content {
+  flex: 1;
+  padding: 16rpx;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 12rpx 20rpx;
+  margin-bottom: 16rpx;
+}
+
+.search-input {
+  flex: 1;
+  height: 64rpx;
+  font-size: 28rpx;
+}
+
+.search-btn {
+  color: #1677ff;
+  font-size: 28rpx;
+  padding: 8rpx 16rpx;
+}
+
+.empty {
+  text-align: center;
+  padding: 100rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 通知 */
+.notice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.notice-item {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+}
+
+.notice-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 16rpx;
+  line-height: 1.5;
+}
+
+.notice-meta {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.notice-type {
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  font-size: 22rpx;
+  background: #e6f7ff;
+  color: #096dd9;
+}
+
+/* 图书馆卡片 */
+.lib-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16rpx;
+}
+
+.lib-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx 20rpx;
+  text-align: center;
+}
+
+.lib-icon {
+  font-size: 56rpx;
+  margin-bottom: 12rpx;
+}
+
+.lib-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.lib-desc {
+  font-size: 22rpx;
+  color: #999;
+  line-height: 1.4;
+}
